@@ -22,7 +22,9 @@ export class ReadyListener extends Listener {
 			'DiscordJs: Activity set Stage completed, continuing...'
 		);
 		container.logger.info(
-			`DiscordJs: Now successfully started as ${c.user.username}!`
+			`DiscordJs: Now successfully started as ${
+				c.user!.username
+			}!`
 		);
 	}
 }
