@@ -12,7 +12,8 @@
 		"@sapphire/framework": "^4.4.3",
 		"@sapphire/plugin-logger": "^3.0.4",
 		"discord.js": "14.11.0",
-		"dotenv": "^16.0.3"
+		"dotenv": "^16.0.3",
+		"ora": "^6.3.0"
 	},
 	"devDependencies": {
 		"@bracketed/typescript-config": "latest",
@@ -20,7 +21,13 @@
 		"typescript": "^5.0.4"
 	},
 	"scripts": {
-		"start": "yarn tsc && node dist/BotRoot.js",
+		"start": "node dist/BotRoot.js",
+		"dev": "yarn dlx prisma generate && yarn dlx tsc && yarn node dist/BotRoot.js",
+		"start:docker": "docker run --detach --name BloxcoBot --network bloxco0 --restart unless-stopped bloxbot:bloxy",
+		"dev:docker": "docker build --tag bloxbot:bloxy . && docker run --detach --name BloxcoBot --network bloxco0 --restart unless-stopped bloxbot:bloxy",
+		"stop:docker": "docker stop BloxcoBot && docker rm BloxcoBot && docker rmi bloxbot:bloxy",
+		"build:docker": "docker build --tag bloxbot:bloxy .",
+		"remove:discord": "node RemoveCommands.js",
 		"build": "yarn install && yarn tsc"
 	}
 }
