@@ -7,6 +7,14 @@
 	"imports": {
 		"#root/*": "./dist/*.js"
 	},
+	"author": {
+		"name": "ninjaninja140",
+		"url": "https://github.com/ninjaninja140"
+	},
+	"homepage": "https://bracketed.co.uk",
+	"repository": {
+		"url": "https://github.com/ninjaninja140/DiscordJS-Template"
+	},
 	"dependencies": {
 		"@sapphire/decorators": "^6.0.1",
 		"@sapphire/framework": "^4.4.3",
@@ -23,10 +31,10 @@
 	"scripts": {
 		"start": "node dist/BotRoot.js",
 		"dev": "yarn dlx prisma generate && yarn dlx tsc && yarn node dist/BotRoot.js",
-		"start:docker": "docker run --detach --name BloxcoBot --network bloxco0 --restart unless-stopped bloxbot:bloxy",
-		"dev:docker": "docker build --tag bloxbot:bloxy . && docker run --detach --name BloxcoBot --network bloxco0 --restart unless-stopped bloxbot:bloxy",
-		"stop:docker": "docker stop BloxcoBot && docker rm BloxcoBot && docker rmi bloxbot:bloxy",
-		"build:docker": "docker build --tag bloxbot:bloxy .",
+		"start:docker": "docker run --detach --name DiscordBot --network bridge --restart unless-stopped bot:latest",
+		"dev:docker": "docker build --tag bot:latest . && docker run --detach --name DiscordBot --network bridge --restart unless-stopped bot:latest",
+		"stop:docker": "docker stop DiscordBot && docker rm DiscordBot && docker rmi bot:latest",
+		"build:docker": "docker build --tag bot:latest .",
 		"remove:discord": "node RemoveCommands.js",
 		"build": "yarn install && yarn tsc"
 	}
