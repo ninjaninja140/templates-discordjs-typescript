@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import '@sapphire/plugin-logger/register';
-import { REST, Routes } from 'discord.js';
+import { REST, Routes, GatewayIntentBits } from 'discord.js';
 import { SapphireClient } from '@sapphire/framework';
 import ora from 'ora';
 
