@@ -17,7 +17,7 @@
 	},
 	"dependencies": {
 		"@sapphire/decorators": "^6.0.1",
-		"@sapphire/framework": "^4.4.3",
+		"@sapphire/framework": "^5.0.7",
 		"@sapphire/plugin-logger": "^3.0.4",
 		"discord.js": "14.11.0",
 		"dotenv": "^16.0.3",
