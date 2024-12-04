@@ -1,6 +1,6 @@
 {
 	"name": "discordjs-template",
-	"packageManager": "yarn@3.5.1",
+	"packageManager": "yarn@3.8.7",
 	"private": true,
 	"main": "dist/BotRoot.js",
 	"type": "module",
