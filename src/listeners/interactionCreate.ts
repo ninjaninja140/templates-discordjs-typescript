@@ -3,17 +3,10 @@ import { Interaction, InteractionType } from 'discord.js';
 
 export class InteractionListener extends Listener {
 	public async run(Interaction: Interaction) {
-		if (
-			Interaction.inGuild() &&
-			Interaction.type === InteractionType.ApplicationCommand
-		) {
+		if (Interaction.inGuild() && Interaction.type === InteractionType.ApplicationCommand) {
 			container.logger.info(
-				`DiscordJs: ${Interaction.user.tag} ran ${
-					Interaction.commandName
-				} in ${
-					container.client.guilds.cache.get(
-						Interaction.guildId!
-					)?.name
+				`Gateway: ${Interaction.user.tag} ran ${Interaction.commandName} in ${
+					container.client.guilds.cache.get(Interaction.guildId!)?.name
 				}.`
 			);
 		}

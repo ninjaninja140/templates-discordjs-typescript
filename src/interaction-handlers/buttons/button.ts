@@ -1,15 +1,8 @@
-import {
-	InteractionHandler,
-	InteractionHandlerTypes,
-	PieceContext,
-} from '@sapphire/framework';
+import { InteractionHandler, InteractionHandlerTypes } from '@sapphire/framework';
 import type { ButtonInteraction } from 'discord.js';
 
 export class ButtonHandler extends InteractionHandler {
-	public constructor(
-		ctx: PieceContext,
-		options: InteractionHandler.Options
-	) {
+	public constructor(ctx: InteractionHandler.LoaderContext, options: InteractionHandler.Options) {
 		super(ctx, {
 			...options,
 			interactionHandlerType: InteractionHandlerTypes.Button,

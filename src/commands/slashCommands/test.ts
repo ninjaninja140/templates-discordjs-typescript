@@ -1,9 +1,7 @@
 import { ChatInputCommand, Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
-	public override registerApplicationCommands(
-		registry: ChatInputCommand.Registry
-	) {
+	public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
 		registry.registerChatInputCommand((builder) =>
 			builder //
 				.setName('hello')
@@ -14,14 +12,10 @@ export class SlashCommand extends Command {
 		);
 	}
 
-	public override async chatInputRun(
-		interaction: ChatInputCommand.Interaction
-	) {
+	public override async chatInputRun(interaction: ChatInputCommand.Interaction) {
 		const user = interaction.user.id;
 
-		await this.container.client.users.cache
-			.get(user)
-			?.send({ content: 'DM test. (You used /test)' });
+		await this.container.client.users.cache.get(user)?.send({ content: 'DM test. (You used /test)' });
 		await interaction.reply({
 			content: 'Testing reply interaction!',
 			ephemeral: true,
