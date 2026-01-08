@@ -1,0 +1,15 @@
+name: CI Deploy
+
+on:
+  #push:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Docker Compose Up
+        run: docker compose -f docker/prod/main.compose.yaml up -d --build

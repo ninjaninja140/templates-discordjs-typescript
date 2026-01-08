@@ -1,0 +1,19 @@
+name: Docker Build Test
+run-name: Docker Build Test
+
+on:
+    push:
+    schedule:
+        - cron: "0 0 * * 0"
+    workflow_dispatch:
+
+jobs:
+    check-code:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - run: docker compose -f docker/dev/main.compose.yaml build
+              name: Running test Docker dev build
+            - run: docker compose -f docker/prod/main.compose.yaml build
+              name: Running test Docker production build

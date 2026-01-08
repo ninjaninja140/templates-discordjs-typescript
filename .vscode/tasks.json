@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label":  "Start Docker Services",
+      "type": "shell",
+      "command": "docker compose --file docker/dev/services.compose.yaml down && docker compose --file docker/dev/services.compose.yaml up -d --force-recreate --remove-orphans",
+      "runOptions":  {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+  ]
+}
