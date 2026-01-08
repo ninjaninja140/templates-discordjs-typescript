@@ -1,14 +1,11 @@
-import { ChatInputCommand, Command } from '@sapphire/framework';
+import { type ChatInputCommand, Command } from '@sapphire/framework';
 
 export class SlashCommand extends Command {
 	public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
 		registry.registerChatInputCommand((builder) =>
 			builder //
 				.setName('hello')
-				.setDescription(
-					'Testing command to verify that the command system is working properly.'
-				)
-				.setDMPermission(false)
+				.setDescription('Testing command to verify that the command system is working properly.')
 		);
 	}
 

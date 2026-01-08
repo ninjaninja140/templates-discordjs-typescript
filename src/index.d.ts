@@ -6,4 +6,10 @@ declare global {
 	}
 }
 
+declare module "@sapphire/pieces" {
+	interface Container {
+		dev: boolean;
+	}
+}
+
 export {};

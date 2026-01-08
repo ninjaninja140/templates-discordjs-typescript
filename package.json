@@ -1,12 +1,9 @@
 {
 	"name": "@ninjaninja140/discord-ts-template",
-	"packageManager": "yarn@4.6.0",
+	"packageManager": "yarn@4.12.0",
 	"private": true,
-	"main": "dist/Entrypoint.js",
+	"main": "dist/Entrypoint.mjs",
 	"type": "module",
-	"imports": {
-		"#root/*": "./dist/*.js"
-	},
 	"author": {
 		"name": "ninjaninja140",
 		"url": "https://github.com/ninjaninja140"
@@ -16,26 +13,32 @@
 		"url": "https://github.com/ninjaninja140/templates-discordjs-typescript"
 	},
 	"dependencies": {
-		"@sapphire/decorators": "^6.1.1",
-		"@sapphire/framework": "^5.3.2",
-		"@sapphire/plugin-logger": "^4.0.2",
-		"discord.js": "14.17.3",
-		"dotenv": "^16.4.7",
-		"ora": "^8.2.0"
+		"@sapphire/framework": "^5.5.0",
+		"@sapphire/plugin-logger": "^4.1.0",
+		"@sapphire/plugin-utilities-store": "^2.0.3",
+		"discord.js": "14.25.1",
+		"dotenv": "^17.2.3"
 	},
 	"devDependencies": {
-		"@bracketed/typescript-config": "^4.4.0",
+		"@biomejs/biome": "^2.3.11",
+		"@bracketed/tsup-configuration": "^1.0.5",
+		"@bracketed/typescript-config": "^4.7.1",
 		"@sapphire/cli": "^1.9.3",
-		"typescript": "^5.7.3"
+		"@swc/core": "^1.15.8",
+		"@types/node": "^25.0.3",
+		"esbuild": "^0.27.2",
+		"esbuild-fix-imports-plugin": "^1.0.23",
+		"esbuild-plugin-copy": "^2.1.1",
+		"esbuild-plugin-file-path-extensions": "^2.1.4",
+		"esbuild-plugin-version-injector": "^1.2.1",
+		"tsc-alias": "^1.8.16",
+		"tsconfig-paths": "^4.2.0",
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3"
 	},
 	"scripts": {
-		"start": "node dist/Entrypoint.js",
-		"dev": "yarn dlx prisma generate && yarn dlx tsc && yarn node dist/Entrypoint.js",
-		"start:docker": "docker run --detach --name DiscordBot --network bridge --restart unless-stopped bot:latest",
-		"dev:docker": "docker build --tag bot:latest . && docker run --detach --name DiscordBot --network bridge --restart unless-stopped bot:latest",
-		"stop:docker": "docker stop DiscordBot && docker rm DiscordBot && docker rmi bot:latest",
-		"build:docker": "docker build --tag bot:latest .",
-		"remove:discord": "node RemoveCommands.js",
-		"build": "yarn install && yarn tsc"
+		"start": "node dist/Entrypoint.mjs",
+		"build": "tsup",
+		"update": "yarn upgrade-interactive"
 	}
 }

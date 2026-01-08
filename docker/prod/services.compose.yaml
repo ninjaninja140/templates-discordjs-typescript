@@ -1,0 +1,10 @@
+name: ninjaninja140-ts-template
+
+services:
+  # Put the services your project will be running in here
+  # This file will be deployed via main.compose.yaml when in .github/workflows/ci.yml
+  # I'd strongly advise not opening ports unless they are needed to be open during production deployments
+  # This file is not automatically deployed on VSC boot.
+  nothing:
+    image: scratch
+    command: [""]

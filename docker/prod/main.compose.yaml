@@ -1,0 +1,17 @@
+name: ninjaninja140-ts-template
+
+include:
+    - services.compose.yaml
+
+services:
+    # Put all services your project will be running in here that aren't in services.compose.yaml
+    # This file will be deployed when .github/workflows/ci.yml runs
+    # I'd strongly advise not opening ports unless they are needed to be open during production deployments
+    # This file is not automatically deployed on VSC boot.
+    app:
+        image: ninjaninja140/ts-template
+        container_name: ninjaninja140-ts-template
+        restart: always
+        build:
+            context: ../..
+            dockerfile: docker/Dockerfile

@@ -1,0 +1,9 @@
+name: ninjaninja140-ts-template
+
+services:
+  # Put the services your project will be running in here
+  # This file will automatically deploy when Visual Studio Code opens this project
+  # I'd suggest leaving ports open for services in this file for debugging purposes
+  nothing:
+    image: scratch
+    command: [""]

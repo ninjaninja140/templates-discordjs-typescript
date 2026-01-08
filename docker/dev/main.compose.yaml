@@ -1,0 +1,16 @@
+name: ninjaninja140-ts-template
+
+include:
+    - services.compose.yaml
+
+services:
+    # Put all services your project will be running in here that aren't in services.compose.yaml
+    # This file will not automatically be deployed when Visual Studio Code opens this project
+    # I'd suggest leaving ports open for services in this file for debugging purposes
+    app:
+        image: ninjaninja140/ts-template
+        container_name: ninjaninja140-ts-template
+        restart: always
+        build:
+            context: ../..
+            dockerfile: docker/Dockerfile

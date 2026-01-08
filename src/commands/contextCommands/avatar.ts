@@ -1,5 +1,5 @@
-import { Command, ContextMenuCommand } from '@sapphire/framework';
-import { ApplicationCommandType, EmbedBuilder, UserContextMenuCommandInteraction } from 'discord.js';
+import { Command, type ContextMenuCommand } from '@sapphire/framework';
+import { ApplicationCommandType, EmbedBuilder } from 'discord.js';
 
 export class SlashCommand extends Command {
 	public override registerApplicationCommands(registry: ContextMenuCommand.Registry) {
@@ -8,7 +8,9 @@ export class SlashCommand extends Command {
 		);
 	}
 
-	public override async contextMenuRun(interaction: UserContextMenuCommandInteraction) {
+	public override async contextMenuRun(interaction: ContextMenuCommand.Interaction) {
+		if (!interaction.isUserContextMenuCommand()) return;
+
 		const Target = interaction.targetUser;
 		const Avatar = Target.displayAvatarURL({ size: 4096 });
 		const Embed = new EmbedBuilder().setImage(Avatar).setTitle(`${Target.tag}'s Avatar`);
